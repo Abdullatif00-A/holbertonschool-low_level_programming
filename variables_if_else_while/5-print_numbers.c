@@ -1,8 +1,8 @@
-#include <stdio.h> 
+i#include <stdio.h>
  /**
-*  main - print decimals 
+*  main - print decimals
 *
-* Return: (8) 
+* Return: (8)
 *
 */
 int main(void)
