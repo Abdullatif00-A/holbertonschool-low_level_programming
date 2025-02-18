@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 /**
  * main - main function
  *
@@ -7,18 +6,14 @@
  */
 int main(void)
 {
-int num;
+	int i = 0;
 
-for (num = 0; num <= 9; num++)
-{
-putchar((num % 10) + '0');
-if (num == 9)
-continue;
-putchar(',');
-putchar(' ');
-}
+	for (i = 10; i < 99; i++)
+	{
+		putchar(i);
+		putchar(',');
+	}
 
-putchar('\n')
-
-return (0);
+	putchar('\n');
+	return (0);
 }
