@@ -1,19 +1,20 @@
 #include <stdio.h>
+
 /**
- * main - print decimal without char
- *
- * Return: (0)
- *
+ * main - main function
+ * Description:printinggg single digits numbers of base 10 starting from 01
+ * Return: 0
  */
- int main(void)
- {
-         int d;
-         
-         for (d <= '0'; d <= '9'; d++)
-        {
-                 putchar(d);
-                 d++;
-         }
-         putchar('\n')
-         
-         return (0);
+
+int main(void)
+{
+	int x;
+
+	for (x = 48; x <= 57; x++)
+	{
+		putchar(x);
+	}
+	putchar('\n');
+
+	return (0);
+}
