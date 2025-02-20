@@ -2,7 +2,7 @@
 void print_alphanet(void)
 {
 char c= 'a';
-while (C <= 'z')
+while (c <= 'z')
 {
 
 _putchar(c);
