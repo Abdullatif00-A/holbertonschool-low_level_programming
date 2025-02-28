@@ -1,45 +1,35 @@
-#include "holberton.h"
+#include <string.h>
 
-/**
- * print_number - Function that prints an integer.
- * @n: int type number
- * Description: Can only use _putchar to print.
- */
-void print_number(int n)
-{
-	long m; /* power of 10 */
-	int c; /* boolean check */
-	long num; /* convert int to long */
+char *infinite_add(char *n1, char *n2, char *r, int size_r) {
+    int len1 = strlen(n1);
+    int len2 = strlen(n2);
+    int carry = 0;
+    int i = len1 - 1;
+    int j = len2 - 1;
+    int k = 0;
 
-	num = n;
-	/* negatives */
-	if (num < 0)
-	{
-		num *= -1;
-		_putchar('-');
-	}
+    // Check if buffer is too small (needs space for result + null terminator)
+    if (size_r < (len1 > len2 ? len1 : len2) + 1) {
+        return 0;
+    }
 
-	/* count up */
-	m = 1;
-	c = 1;
-	while (c)
-	{
-		if (num / (m * 10) > 0)
-			m *= 10;
-		else
-			c = 0;
-	}
+    // Add digits from right to left
+    while (i >= 0 || j >= 0 || carry) {
+        int sum = carry;
+        if (i >= 0) sum += n1[i--] - '0';
+        if (j >= 0) sum += n2[j--] - '0';
+        carry = sum / 10;
+        r[k++] = (sum % 10) + '0';
+        if (k >= size_r) return 0; // Buffer overflow
+    }
+    r[k] = '\0';
 
-	/* count down */
-	while (num >= 0)
-	{
-		if (m == 1)
-		{
-			_putchar(num % 10 + '0');
-			num = -1;
-		}
-		else
-		{
-			_putchar((num / m % 10) + '0');
-			m /= 10;
-		}
+    // Reverse the result
+    for (int start = 0, end = k - 1; start < end; start++, end--) {
+        char temp = r[start];
+        r[start] = r[end];
+        r[end] = temp;
+    }
+
+    return r;
+}
