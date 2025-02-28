@@ -9,7 +9,7 @@
  *
  * Return: void
  */
-void print_buffer(char *b, int size)
+char *infinite_add(char *n1, char *n2, char *r, int size_r);
 {
 	int i, counter = 0, size2 = size;
 	char *ptr = b;
