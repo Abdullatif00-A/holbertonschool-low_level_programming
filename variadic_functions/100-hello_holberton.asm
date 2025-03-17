@@ -1,15 +1,17 @@
-    section .data
-msg:	db	"Hello, Holberton",10
-    global main
+section .data
+    msg db "Hello, Holberton", 10  ;
+    len equ $ - msg  ;
 
-    section .text
-main:
-    mov	rax, 1
-    mov	rdi, 1
-    mov	rsi, msg
-    mov	rdx, 17
-    syscall
+section .text
+    global _start  ;
 
-    mov rax, 60
-    xor rdi, rdi
-    syscall
+_start:
+    mov rax, 1      ; 
+    mov rdi, 1      ; 
+    mov rsi, msg    ; 
+    mov rdx, len    ;
+    syscall         ; 
+
+    mov rax, 60     ; 
+    xor rdi, rdi    ;
+    syscall         ; 
