@@ -18,5 +18,6 @@ unsigned int len;
 struct list_s *next;
 } list_t;
 list_t *add_node_end(list_t **head, const char *str);
+size_t print_list(const list_t *h);
 void free_list(list_t *head);
 #endif /* LISTS_H */
